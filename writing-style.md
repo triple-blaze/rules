@@ -2,6 +2,8 @@
 
 > Single source of truth for how Claude writes, in chat and in deliverables.
 > Merged 2026-08-18 from 12 project audits and 19 correction threads.
+> Revised 2026-10-07, second pass: added 8.4.1, the short date form dd-Mmm-yy and the 3 places it belongs.
+> Revised 2026-10-07: extended 4.15 to meeting notes and status updates, with the imperative exemption for action-item lines.
 > Revised 2026-08-19: added 2.7, 3.8.1, 3.10, 4.10, 4.11, 6.20, 8.8, 8.9, and
 > words to 3.5, added 3.11 to 3.15, 4.12, 6.21, 8.10, 8.11, and rewrote 5.3. Old 5.4 deleted and 5.5 to 5.10 renumbered.
 > Revised 2026-09-30, second pass: added section 9, how a draft is checked. The
@@ -711,6 +713,15 @@ practice, a fact about the record. Writing a plan in the present tense reads as 
 claim that the thing already exists, and a reader who acts on it is misled about
 what has been built and what has been decided.
 
+This applies in meeting notes and status updates, where a step the group agreed in
+the meeting is still a future action. `Austin's team makes the logic change and
+reruns the suite` becomes `Austin's team will make the logic change and rerun the
+suite`. `The dev team finishes the workflow items by November 1` becomes `the dev
+team will finish the workflow items by November 1`. `Austin talks to Matt on Friday`
+becomes `Austin will talk to Matt on Friday`. An action-item line written as an
+imperative is exempt, because an imperative gives a direction and makes no claim
+that the step has happened.
+
 **4.15.1 Write a hypothetical with would.**
 An outcome that has not happened, and may never happen, takes would. `2 people
 counting it get 2 answers` becomes `2 people counting it would get 2 different
@@ -1088,6 +1099,27 @@ in a summary, exact in analysis. Write `roughly 450` or `about 450`, not `~450`.
 filenames, structured metadata, and status headings, because ISO in a sentence is
 unreadable and a filename has to sort. Convert every relative date
 to a calendar date.
+
+**8.4.1 Write a short date as `dd-Mmm-yy`, in a citation, a label, or a byline.**
+The form is a 2 digit day, the 3 letter month with its first letter capitalized,
+and a 2 digit year, joined by plain hyphens: `30-Sep-26`, `07-Oct-26`. Judge the
+date by its own job and ignore what surrounds it. The 3 places it belongs:
+
+1. A citation, such as the creator and date on an issue, a ticket, a document or
+   a source. A citation takes the short form even where the sentence beside it
+   has a verb in it.
+2. A label, in 1.4's sense: a table cell, a column header, a chart axis or data
+   label, a schedule chip, a calendar entry or a drawing callout. A status
+   heading is the exception and keeps ISO from 8.4.
+3. A byline or a footer source line, which a reader scans and never says aloud.
+
+A date that is part of a sentence's own grammar takes the long form from 8.4,
+`September 30, 2026` or `October 5`, wherever that sentence sits, a table cell
+included. A filename and a machine read field keep ISO from 8.4, because those
+sort, and a byline is neither. The hyphens inside a short date separate its 3
+parts and do not make it a range: a date range in a label keeps the 1.4 form,
+`Aug 13-28`. A document that uses the short form uses the same spelling of it
+throughout, so never mix `30-Sep-26` with `9/30/26` or `30 Sep`.
 
 **8.5 Elapsed time in real hours or days**, not working hours. Prefer
 `Has not moved since 28 July` over `Has not moved in 9.8 days`, and recompute at
