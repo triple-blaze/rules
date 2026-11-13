@@ -2,6 +2,10 @@
 
 > Single source of truth for how Claude writes, in chat and in deliverables.
 > Merged 2026-08-18 from 12 project audits and 19 correction threads.
+> Revised 2026-11-13: rewrote 5.3 to close every reply with 4 headings, adding
+> ACTIONS FOR ME, with each open decision as 1 line linking to a file in For Ian.
+> Revised 2026-11-06: added 1.4.1, 3.18, 4.15.2, 6.1.3 and 8.4.2, and extended 6.19 to
+> the lead, from Ian's edits to the Ignition Phase 1 proposal addendum.
 > Revised 2026-10-07, second pass: added 8.4.1, the short date form dd-Mmm-yy and the 3 places it belongs.
 > Revised 2026-10-07: extended 4.15 to meeting notes and status updates, with the imperative exemption for action-item lines.
 > Revised 2026-08-19: added 2.7, 3.8.1, 3.10, 4.10, 4.11, 6.20, 8.8, 8.9, and
@@ -88,6 +92,13 @@ Prose takes the word: `14 to 18 inches`, `$2,200 to $2,500`, `Aug 13 to 28`,
 label, a UI string, a status heading, a schedule chip, a calendar entry, or a
 drawing callout. Anything with a verb is prose. The hyphen is the only range
 character in either case.
+
+**1.4.1 Introduce a cost range with "between", never with "about".**
+A range already states how far the figure can move, so `about` in front of it
+hedges twice. `Lasting Mark pays about $10,200 to $23,900 per month` becomes
+`Lasting Mark pays between $10,200 to $23,900 per month`. `Roughly` is the
+alternative where `between` reads badly: `NIPR costs roughly $1,010 to $1,930 per
+month`. A single estimated figure keeps `about`: `about $32,000 per year`.
 
 **1.5 Straight quotes and apostrophes. Chat and artifacts. Never curly.**
 This governs Claude's own prose. For a quotation, see 4.11.
@@ -476,6 +487,11 @@ word and say where it appears.
 
 ---
 
+**3.18 Write "excluded" for an item kept out of a total.**
+`MotherDuck is left out` becomes `MotherDuck is excluded`. Excluded is the word a
+budget reader uses for a line outside a total, and `left out` reads as an
+oversight.
+
 ## 4. Sentence and paragraph
 
 **4.1 One idea per sentence.**
@@ -731,6 +747,12 @@ fact about now, and using it for a hypothetical tells the reader the thing is
 already happening. This sits beside 4.15, which governs a future action that is
 planned.
 
+**4.15.2 Write a volume the system does not have yet as an expectation.**
+`How many texts, documents, and Jira users Ignition has` becomes `how many texts,
+documents, and Jira users we expect with Ignition`. Before go-live a system has
+no volume, and the present tense claims a count that exists. This extends 4.15
+from actions to quantities.
+
 **4.16 Name the members of a set the first time you give its count.**
 `the 3 recency rules`, `the 5 bank checks`, `the 12 reasons` and `the 9 document
 checks` each ask the reader to know a list they have never been shown. Give the
@@ -776,15 +798,31 @@ chronology of what was tried.
 **5.2 Do not narrate the work.**
 No sequence of files opened. No `Let me...` or `Now I'll...` before a tool call.
 
-**5.3 Close with three headings.**
-Every reply ends with `DONE`, `OPEN`, and `DECISIONS FOR ME`, in that order. Set
-each in bold, typed in capitals, on its own line. All three appear on every
-reply, however short. Where a heading has nothing under it, write `None.`
+**5.3 Close with 4 headings.**
+Every reply ends with `DONE`, `OPEN`, `ACTIONS FOR ME`, and `DECISIONS FOR ME`, in
+that order. Set each in bold, typed in capitals, on its own line. All 4 appear on
+every reply, however short. Where a heading has nothing under it, write `None.`
 
-`DONE` lists the actions taken and their effect, one line each. It never
-describes the contents of a file, which 5.4 already covers. No summary of the
-work above `DONE`, and no offer of help anywhere. At most one question, and it
-belongs under `DECISIONS FOR ME`.
+1. Each item appears under 1 heading only, and the body above the headings never
+   restates an item a heading holds. A reply that only reports work has no body.
+2. `DONE` lists the actions taken and their effect, 1 line each, including each
+   file sent to another chat, naming the chat and the folder. It never describes
+   the contents of a file, which 5.4 already covers.
+3. `OPEN` lists work waiting on someone other than Ian, naming who holds it.
+4. `ACTIONS FOR ME` lists what only Ian can do, numbered, ordered so the first
+   unblocks the most. Each names where to do it, with a full link where one exists.
+5. `DECISIONS FOR ME` lists each open decision in 1 numbered line: the question,
+   the recommendation, and a link to its details. A decision about the build links
+   to its Question in Jira. Any other decision links to a Markdown file in
+   `/Users/ian_r/code/_shared/for-ian/` on Ian's Mac, beside the rules folder, written
+   once, holding the context, the options with what each changes, and the reason
+   for the recommendation. A chat that cannot reach the Mac writes the file to
+   `claude/for-ian/` in the project and links that. Ian answers by number, such
+   as `1 yes`.
+6. An unanswered decision carries forward as the same 1 line and the same link.
+7. When Ian answers, the chat records the answer and its date at the top of the
+   file and moves it into `for-ian/Answered/`.
+8. No summary of the work above the headings, and no offer of help anywhere.
 
 Bold satisfies 5.8, which permits bold for labels and bars headers.
 
@@ -812,6 +850,14 @@ performs, such as `Why the accepted pay stub changed no outcome`.
 
 **5.9 Length.** Short. Lean short by default. Do not make Ian ask twice.
 
+**5.10 Give Ian the exact action and the full link.**
+Every step a reply asks of Ian names what he does: the chat to open and
+the word to type, the file to open, or the pull request to merge. A pull request
+always appears as its full GitHub link, such as
+`https://github.com/lasting-mark/ignition/pull/9`, never as a number or a branch
+name alone. Where his part is small, say so: `open the requirements chat and type
+inbox`.
+
 ---
 
 ## 6. Artifacts
@@ -830,6 +876,12 @@ information fits in an existing row, column, or cell.
 Four conditions for what counts as an insurance change reads as a numbered list,
 not as one prose sentence with commas. The list makes the definition
 recognizable as a definition.
+
+**6.1.3 A table row label names the category the reader budgets for.**
+`Core Ignition, with session replay` becomes `Core Ignition (Cloud services)`. The
+row names what the money buys at the level the reader decides on, with a plain
+gloss in parentheses where the name alone is unclear. A feature inside the
+category belongs in the section that explains it.
 
 **6.2 Lists must render.**
 Blank line before every list and after it. Each item on its own line. No stray
@@ -958,6 +1010,11 @@ the text color, never through a glyph.
 A single point lives in one place. If it wants to appear in a second section,
 move it or delete the duplicate. Two sections that state the same point drift
 out of sync.
+
+The lead follows the same rule. A total or a finding that has its own section
+stays out of the lead, which states what the document does. Ian cut `Ignition's
+ongoing costs after go-live come to about $10,200 to $23,900 per month` from the
+addendum's lead, because the Ongoing costs section states it.
 
 **6.20 State the ordering principle.**
 Where rows, sites, slides, or sections run in a sequence, name the basis on the
@@ -1120,6 +1177,13 @@ sort, and a byline is neither. The hyphens inside a short date separate its 3
 parts and do not make it a range: a date range in a label keeps the 1.4 form,
 `Aug 13-28`. A document that uses the short form uses the same spelling of it
 throughout, so never mix `30-Sep-26` with `9/30/26` or `30 Sep`.
+
+**8.4.2 Tie a dated item to its date with "from", and a price with "as of".**
+`Thomas Graziano's questions of November 5` becomes `Thomas Graziano's questions
+from November 5`. `The proposal of November 3` becomes `the proposal from November
+3`. A price read on a given day takes `as of`: `prices come from each vendor's own
+pricing page, as of November 5 and 6, 2026`, because a price can change after the
+day it was read.
 
 **8.5 Elapsed time in real hours or days**, not working hours. Prefer
 `Has not moved since 28 July` over `Has not moved in 9.8 days`, and recompute at
