@@ -91,3 +91,9 @@ This section applies to sessions Ian Ratner runs. It does not apply to other peo
 Open every pull request as a draft while you are still working on it. When the work is done and GitHub shows no conflicts with main, mark it ready for review, which starts the required checks. Wait until every required check on the ready pull request has finished and passed, and only then tell Ian it is ready to merge, with its full link. If a pull request you opened gets a conflict with main, merge main into its branch, resolve the conflict, push, wait for the checks again, and tell Ian in 1 line what you changed. Where resolving it means choosing between 2 versions of wording or behavior, stop and send a Question for Ian to the project management chat. Never change another session's or another person's branch.
 
 Source: Ian Ratner, November 16, 2026.
+
+Give the full link every time you mention a pull request, whether you name it by number or describe it, in any part of a reply or a note.
+
+Before you ask Ian to merge, review or do anything else with a pull request, check its state on GitHub in the same turn: whether it is open, a draft, merged or closed, whether its required checks have passed, and whether it conflicts with main. Ask Ian only about a pull request that is open, ready for review, free of conflicts, and passing every required check. A report from another session or an earlier turn is not a check, because a pull request can merge or change between that report and your reply. Where you cannot reach GitHub in that turn, say so in 1 line and leave the pull request out of the actions you list for Ian.
+
+Source: Ian Ratner, November 16, 2026.
