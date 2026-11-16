@@ -83,3 +83,11 @@ The two hashes must match. A "source of truth" that lives only in the working tr
 only in an unpushed local commit, WILL revert.
 
 **Committed ≠ persisted. Pushed-and-confirmed-on-origin = persisted.**
+
+## Pull requests in Ian's sessions
+
+This section applies to sessions Ian Ratner runs. It does not apply to other people's sessions on a shared repository.
+
+Open every pull request as a draft while you are still working on it. When the work is done and GitHub shows no conflicts with main, mark it ready for review, which starts the required checks. Wait until every required check on the ready pull request has finished and passed, and only then tell Ian it is ready to merge, with its full link. If a pull request you opened gets a conflict with main, merge main into its branch, resolve the conflict, push, wait for the checks again, and tell Ian in 1 line what you changed. Where resolving it means choosing between 2 versions of wording or behavior, stop and send a Question for Ian to the project management chat. Never change another session's or another person's branch.
+
+Source: Ian Ratner, November 16, 2026.
