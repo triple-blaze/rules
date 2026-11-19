@@ -1,6 +1,8 @@
 # Writing style: canonical rules
 
 > Single source of truth for how Claude writes, in chat and in deliverables.
+> Revised 2026-11-19: added 5.3.1, so a decision or an action names the work in
+> plain words before it names a branch, a pull request or a Jira key.
 > Merged 2026-08-18 from 12 project audits and 19 correction threads.
 > Revised 2026-11-13: rewrote 5.3 to close every reply with 4 headings, adding
 > ACTIONS FOR ME, with each open decision as 1 line linking to a file in For Ian.
@@ -825,6 +827,31 @@ every reply, however short. Where a heading has nothing under it, write `None.`
 8. No summary of the work above the headings, and no offer of help anywhere.
 
 Bold satisfies 5.8, which permits bold for labels and bars headers.
+
+**5.3.1 Name the work a decision or an action is about, in the words Ian uses for it.**
+A line under `ACTIONS FOR ME` or `DECISIONS FOR ME`, and the question in a next
+step box, names a branch, a pull request number, a Jira key or a file path only
+after it has said in plain words what the thing is and what it does. Naming it
+by the label alone makes Ian scroll back through the reply to work out what he
+is answering, or ask again, and both cost him more than the longer line does.
+
+- `Push both branches?` becomes `Push the ui design chat's prototype round and
+  the tests for naming a team and a person?`
+- `Write the requirement for the sign-in email lock now?` becomes `Ask the
+  requirements chat to write the rule that Ignition checks the signature before
+  it sends a sign-in email?`
+- `Merge pull request 600` becomes `Merge the tests for an agent already
+  launched, https://github.com/lasting-mark/ignition/pull/600`.
+
+A button beside the question stays short, at 3 words or so, because the
+question next to it names the thing. The rule holds whether or not the body
+above already explained the work, because the closing lines are read on their
+own and often on a phone. This is 4.5.1 applied to the 2 places where Ian has
+to act.
+
+Source: Ian Ratner, November 19, 2026, after `push both branches` and `write
+the requirement for the sign-in email lock now` each made him ask what the
+decision was about, 2 days apart.
 
 **5.4 Hand over a produced file in one line.**
 Name what it is and the single thing worth knowing. Do not restate its contents.
